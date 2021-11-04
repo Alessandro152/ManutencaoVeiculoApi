@@ -8,7 +8,6 @@
     <Folder Include="Domain\Interface\" />
     <Folder Include="Domain\Handlers\" />
     <Folder Include="Infra\Configurations\" />
-    <Folder Include="Infra\Repositories\" />
   </ItemGroup>
 
 
