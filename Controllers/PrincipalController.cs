@@ -1,4 +1,6 @@
-﻿namespace ManutencaoVeiculoApi.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ManutencaoVeiculoApi.Controllers
 {
     public class PrincipalController : Controller
     {
