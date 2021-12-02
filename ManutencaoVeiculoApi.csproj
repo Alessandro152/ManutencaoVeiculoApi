@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="Domain\Interface\" />
     <Folder Include="Domain\Handlers\" />
+    <Folder Include="Domain\Resources\" />
     <Folder Include="Infra\Configurations\" />
   </ItemGroup>
 
