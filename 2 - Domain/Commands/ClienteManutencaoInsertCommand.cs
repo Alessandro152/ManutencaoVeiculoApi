@@ -1,6 +1,10 @@
 ﻿namespace ManutencaoVeiculoApi.Domain.Commands
 {
-    public class ClienteManutencaoInsertCommand
+    public class ClienteManutencaoInsertCommand : Command
     {
+        public ClienteManutencaoInsertCommand()
+        {
+
+        }
     }
 }

@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="2 - Domain\Interface\" />
-    <Folder Include="2 - Domain\Handlers\" />
     <Folder Include="2 - Domain\Resources\" />
     <Folder Include="3 - Infra\Configurations\" />
   </ItemGroup>
