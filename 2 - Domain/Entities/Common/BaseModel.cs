@@ -1,7 +1,9 @@
-﻿namespace ManutencaoVeiculoApi.Domain.Entities.Common
+﻿using System;
+
+namespace ManutencaoVeiculoApi.Domain.Entities.Common
 {
     public class BaseModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

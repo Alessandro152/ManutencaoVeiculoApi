@@ -1,11 +1,22 @@
-﻿using ManutencaoVeiculoApi.Application.ViewModel;
+﻿using ManutencaoVeiculoApi.Application.AppServices.Cliente;
+using ManutencaoVeiculoApi.Application.ViewModel;
+using ManutencaoVeiculoApi.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ManutencaoVeiculoApi.Controllers
 {
     public class PrincipalController : Controller
     {
+        private readonly ClienteService _clienteService;
+
+        public PrincipalController(ClienteService clienteService)
+        {
+            _clienteService = clienteService;
+        }
+
         [HttpGet]
         public IList<VeiculoViewModel> RetornarTodosVeiculos()
         {
@@ -16,6 +27,21 @@ namespace ManutencaoVeiculoApi.Controllers
         public ClienteViewModel RetornarCliente()
         {
             return new ClienteViewModel();
+        }
+
+        [HttpPost]
+        public async Task SalvarCliente(ClienteViewModel dados)
+        {
+            var cliente = new ClienteModel
+            {
+                Id = Guid.NewGuid(),
+                Nome = dados.Nome,
+                Endereco = dados.Endereco,
+                EMail = dados.EMail,
+                Telefone = dados.Telefone
+            };
+
+            await _clienteService.SalvarCliente(cliente).ConfigureAwait(false);
         }
 
         [HttpPut]
