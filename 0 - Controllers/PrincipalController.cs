@@ -38,8 +38,21 @@ namespace ManutencaoVeiculoApi.Controllers
                 Nome = dados.Nome,
                 Endereco = dados.Endereco,
                 EMail = dados.EMail,
-                Telefone = dados.Telefone
+                Telefone = dados.Telefone,
             };
+
+            foreach (var item in dados.Veiculo)
+            {
+                cliente.Veiculo.Add(new VeiculoModel
+                {
+                    Id = cliente.Id,
+                    Marca = item.Marca,
+                    Modelo = item.Modelo,
+                    Ano = item.Ano,
+                    Cor = item.Cor,
+                    Placa = item.Placa
+                });
+            }
 
             await _clienteService.SalvarCliente(cliente).ConfigureAwait(false);
         }

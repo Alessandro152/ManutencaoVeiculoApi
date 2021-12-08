@@ -1,4 +1,6 @@
-﻿namespace ManutencaoVeiculoApi.Application.ViewModel
+﻿using System.Collections.Generic;
+
+namespace ManutencaoVeiculoApi.Application.ViewModel
 {
     public class ClienteViewModel
     {
@@ -11,5 +13,7 @@
         public string EMail { get; set; }
 
         public string Telefone { get; set; }
+
+        public IList<VeiculoViewModel> Veiculo { get; set; }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using ManutencaoVeiculoApi.Application.Interface;
 using ManutencaoVeiculoApi.Application.Interface.Cliente;
 using ManutencaoVeiculoApi.Domain.Commands;
+using ManutencaoVeiculoApi.Domain.Commands.Veiculo;
 using ManutencaoVeiculoApi.Domain.Entities;
+using ManutencaoVeiculoApi.Domain.Enum;
 using ManutencaoVeiculoApi.Domain.Interface;
 using System.Threading.Tasks;
 
@@ -20,9 +22,14 @@ namespace ManutencaoVeiculoApi.Application.AppServices.Cliente
 
         public Task SalvarCliente(ClienteModel cliente)
         {
-            var command = new ClienteManutencaoInsertCommand(cliente.Nome, cliente.Endereco, cliente.EMail, cliente.Telefone, cliente.Veiculo);
+            var clienteCommand = new ClienteManutencaoInsertCommand(cliente.Nome, cliente.Endereco, cliente.EMail, cliente.Telefone, cliente.Veiculo);
+            var result = _bus.SendCommand<bool, ClienteManutencaoInsertCommand>(clienteCommand).Result;
 
-            var result = _bus.SendCommand<bool, ClienteManutencaoInsertCommand>(command).Result;
+            foreach (var item in cliente.Veiculo)
+            {
+                var veiculoCommand = new VeiculoCommand(item.Marca, item.Modelo, item.Ano, VeiculoTipo.Carro, item.Cor, item.Placa);
+                _bus.SendCommand(veiculoCommand);
+            }
 
             if (result)
             {

@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31409.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManutencaoVeiculoApi", "ManutencaoVeiculoApi.csproj", "{196772B0-1FCB-405D-8749-70A794CE0BE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManutencaoVeiculoApi", "ManutencaoVeiculoApi.csproj", "{196772B0-1FCB-405D-8749-70A794CE0BE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{EEFDB00F-823B-4036-9C25-B841E45A2388}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManutencaoVeiculoApiTest", "..\ManutencaoVeiculoApiTest\ManutencaoVeiculoApiTest.csproj", "{DF01F7E5-6B47-491A-B1AC-0D7FF54B63CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{196772B0-1FCB-405D-8749-70A794CE0BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{196772B0-1FCB-405D-8749-70A794CE0BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{196772B0-1FCB-405D-8749-70A794CE0BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF01F7E5-6B47-491A-B1AC-0D7FF54B63CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF01F7E5-6B47-491A-B1AC-0D7FF54B63CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF01F7E5-6B47-491A-B1AC-0D7FF54B63CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF01F7E5-6B47-491A-B1AC-0D7FF54B63CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF01F7E5-6B47-491A-B1AC-0D7FF54B63CB} = {EEFDB00F-823B-4036-9C25-B841E45A2388}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F81854-07C8-477C-8D07-67D2EAF8285A}
