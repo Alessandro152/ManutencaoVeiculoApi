@@ -13,6 +13,6 @@ namespace ManutencaoVeiculoApi.Domain.Entities
 
         public string Telefone { get; set; }
 
-        public IList<VeiculoModel> Veiculo { get; set; }
+        public IEnumerable<VeiculoModel> Veiculo { get; set; }
     }
 }

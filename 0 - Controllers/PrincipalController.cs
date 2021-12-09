@@ -4,6 +4,7 @@ using ManutencaoVeiculoApi.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ManutencaoVeiculoApi.Controllers
@@ -39,20 +40,8 @@ namespace ManutencaoVeiculoApi.Controllers
                 Endereco = dados.Endereco,
                 EMail = dados.EMail,
                 Telefone = dados.Telefone,
+                Veiculo = dados.Veiculo as IEnumerable<VeiculoModel>
             };
-
-            foreach (var item in dados.Veiculo)
-            {
-                cliente.Veiculo.Add(new VeiculoModel
-                {
-                    Id = cliente.Id,
-                    Marca = item.Marca,
-                    Modelo = item.Modelo,
-                    Ano = item.Ano,
-                    Cor = item.Cor,
-                    Placa = item.Placa
-                });
-            }
 
             await _clienteService.SalvarCliente(cliente).ConfigureAwait(false);
         }

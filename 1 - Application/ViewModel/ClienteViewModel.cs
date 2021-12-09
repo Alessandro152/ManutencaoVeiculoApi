@@ -14,6 +14,6 @@ namespace ManutencaoVeiculoApi.Application.ViewModel
 
         public string Telefone { get; set; }
 
-        public IList<VeiculoViewModel> Veiculo { get; set; }
+        public IEnumerable<VeiculoViewModel> Veiculo { get; set; }
     }
 }
