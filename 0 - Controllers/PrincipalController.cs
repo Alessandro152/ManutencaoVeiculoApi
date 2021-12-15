@@ -30,19 +30,9 @@
         }
 
         [HttpPost]
-        public async Task SalvarCliente(ClienteViewModel dados)
+        public async Task SalvarCliente(ClienteModel dados)
         {
-            var cliente = new ClienteModel
-            {
-                Id = Guid.NewGuid(),
-                Nome = dados.Nome,
-                Endereco = dados.Endereco,
-                EMail = dados.EMail,
-                Telefone = dados.Telefone,
-                Veiculo = dados.Veiculo as IEnumerable<VeiculoModel>
-            };
-
-            await _clienteService.SalvarCliente(cliente).ConfigureAwait(false);
+            await _clienteService.SalvarCliente(dados).ConfigureAwait(false);
         }
 
         [HttpPut]

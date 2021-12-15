@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="2 - Domain\Cliente\Validations\" />
     <Folder Include="2 - Domain\Resources\" />
     <Folder Include="3 - Infra\Configurations\" />
   </ItemGroup>

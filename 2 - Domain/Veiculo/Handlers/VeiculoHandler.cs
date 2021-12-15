@@ -1,6 +1,6 @@
 ﻿namespace ManutencaoVeiculoApi.Domain.Handlers.Veiculo
 {
-    using ManutencaoVeiculoApi.Application.Interface;
+    using ManutencaoVeiculoApi.Domain.Interface.Repositories;
     using ManutencaoVeiculoApi.Domain.Commands.Veiculo;
     using ManutencaoVeiculoApi.Domain.Interface;
     using System;
@@ -31,7 +31,7 @@
 
             try
             {
-                return Task.FromResult(_veiculoRepository.Add(message.ClienteId, message.Marca, message.Modelo, message.Ano, message.Cor, message.Placa));
+                return Task.FromResult(_veiculoRepository.Add(message.VeiculoId, message.ClienteId, message.Marca, message.Modelo, message.Ano, message.Cor, message.Placa));
             }
             catch (Exception ex)
             {

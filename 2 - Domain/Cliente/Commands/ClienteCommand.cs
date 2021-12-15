@@ -1,8 +1,8 @@
 ﻿namespace ManutencaoVeiculoApi.Domain.Commands
 {
-    public class ClienteManutencaoInsertCommand : Command
+    public class ClienteCommand : Command
     {
-        public ClienteManutencaoInsertCommand(string nome, string endereco, string email, string telefone)
+        public ClienteCommand(string nome, string endereco, string email, string telefone)
         {
             Nome = nome;
             Endereco = endereco;

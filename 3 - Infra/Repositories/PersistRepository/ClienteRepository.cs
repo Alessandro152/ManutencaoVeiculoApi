@@ -1,18 +1,22 @@
-﻿using ManutencaoVeiculoApi.Domain.Commands;
-using ManutencaoVeiculoApi.Domain.Interface;
-
-namespace ManutencaoVeiculoApi.Infra.Repositories.PersistRepository
+﻿namespace ManutencaoVeiculoApi.Infra.Repositories.PersistRepository
 {
+    using ManutencaoVeiculoApi.Domain.Commands;
+    using ManutencaoVeiculoApi.Domain.Interface.Repositories;
+    using ManutencaoVeiculoApi.Infra.Context;
+    using System;
+
     public class ClienteRepository : IClienteRepository
     {
-        public ClienteRepository()
+        private readonly DataBaseContext _context;
+
+        public ClienteRepository(DataBaseContext context)
         {
-            
+            _context = context;
         }
 
-        public bool GravarCliente(ClienteManutencaoInsertCommand message)
+        public bool Add(ClienteCommand message)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

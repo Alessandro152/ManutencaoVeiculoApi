@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ManutencaoVeiculoApi.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ManutencaoVeiculoApi.Infra.Context
 {
@@ -12,5 +13,7 @@ namespace ManutencaoVeiculoApi.Infra.Context
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataBaseContext).Assembly);
         }
+
+        public DbSet<VeiculoModel> veiculos { get; set; }
     }
 }

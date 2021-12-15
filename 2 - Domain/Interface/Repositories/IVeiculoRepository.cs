@@ -1,4 +1,4 @@
-﻿namespace ManutencaoVeiculoApi.Application.Interface
+﻿namespace ManutencaoVeiculoApi.Domain.Interface.Repositories
 {
     using ManutencaoVeiculoApi.Domain.Entities;
     using System;
@@ -9,6 +9,6 @@
 
         bool Remove(Guid clienteId);
 
-        bool Add(Guid clienteId, string marca, string modelo, string ano, string cor, string placa);
+        bool Add(Guid veiculoId, Guid clienteId, string marca, string modelo, string ano, string cor, string placa);
     }
 }

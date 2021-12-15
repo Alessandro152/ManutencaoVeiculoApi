@@ -2,6 +2,7 @@
 {
     using ManutencaoVeiculoApi.Application.Interface;
     using ManutencaoVeiculoApi.Application.Interface.Cliente;
+    using ManutencaoVeiculoApi.Application.ViewModel;
     using ManutencaoVeiculoApi.Domain.Commands;
     using ManutencaoVeiculoApi.Domain.Commands.Veiculo;
     using ManutencaoVeiculoApi.Domain.Entities;
@@ -22,12 +23,12 @@
 
         public Task SalvarCliente(ClienteModel cliente)
         {
-            var clienteCommand = new ClienteManutencaoInsertCommand(cliente.Nome, cliente.Endereco, cliente.EMail, cliente.Telefone);
-            var result = _bus.SendCommand<bool, ClienteManutencaoInsertCommand>(clienteCommand).Result;
+            var clienteCommand = new ClienteCommand(cliente.Nome, cliente.Endereco, cliente.EMail, cliente.Telefone);
+            var result = _bus.SendCommand<bool, ClienteCommand>(clienteCommand).Result;
 
             foreach (var item in cliente.Veiculo)
             {
-                var veiculoCommand = new VeiculoCommand(cliente.Id, item.Id, item.Marca, item.Modelo, item.Ano, VeiculoTipo.Carro, item.Cor, item.Placa);
+                var veiculoCommand = new VeiculoCommand(cliente.Id, item.Marca, item.Modelo, item.Ano, VeiculoTipo.Carro, item.Cor, item.Placa);
                 _bus.SendCommand(veiculoCommand);
             }
 
