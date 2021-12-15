@@ -15,7 +15,10 @@ namespace ManutencaoVeiculoApi.Domain.Commands.Veiculo
             Tipo = tipo;
             Cor = cor;
             Placa = placa;
+            VeiculoId = Guid.NewGuid();
         }
+
+        public Guid VeiculoId { get; }
 
         public Guid ClienteId { get; }
 

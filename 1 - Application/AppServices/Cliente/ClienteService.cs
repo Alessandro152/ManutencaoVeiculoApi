@@ -27,18 +27,11 @@
 
             foreach (var item in cliente.Veiculo)
             {
-                var veiculoCommand = new VeiculoCommand(cliente.Id, item.Marca, item.Modelo, item.Ano, VeiculoTipo.Carro, item.Cor, item.Placa);
+                var veiculoCommand = new VeiculoCommand(cliente.Id, item.Id, item.Marca, item.Modelo, item.Ano, VeiculoTipo.Carro, item.Cor, item.Placa);
                 _bus.SendCommand(veiculoCommand);
             }
 
-            if (result)
-            {
-                _uow.Commit();
-            }
-            else
-            {
-                _uow.RollBack();
-            }
+            if (result) { _uow.Commit(); } else { _uow.RollBack(); }
 
             return Task.FromResult(result);
         }

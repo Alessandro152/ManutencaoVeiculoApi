@@ -9,15 +9,22 @@
     public class VeiculoHandler : IHandler<VeiculoCommand>
     {
         private readonly IVeiculoRepository _veiculoRepository;
+        private readonly IValidator<VeiculoCommand> _validator;
 
-        public VeiculoHandler(IVeiculoRepository veiculoRepository)
+        public VeiculoHandler(IVeiculoRepository veiculoRepository, IValidator<VeiculoCommand> validator)
         {
             _veiculoRepository = veiculoRepository;
+            _validator = validator;
         }
 
         public Task<bool> Handle(VeiculoCommand message)
         {
             if (message == null)
+            {
+                return Task.FromResult(false);
+            }
+
+            if (!_validator.Validate(message))
             {
                 return Task.FromResult(false);
             }
