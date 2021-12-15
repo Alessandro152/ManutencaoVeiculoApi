@@ -1,10 +1,9 @@
-﻿using ManutencaoVeiculoApi.Application.Interface;
-using ManutencaoVeiculoApi.Domain.Commands.Veiculo;
-using ManutencaoVeiculoApi.Domain.Entities;
-using System.Threading.Tasks;
-
-namespace ManutencaoVeiculoApi.Infra.Repositories.PersistRepository
+﻿namespace ManutencaoVeiculoApi.Infra.Repositories.PersistRepository
 {
+    using ManutencaoVeiculoApi.Application.Interface;
+    using ManutencaoVeiculoApi.Domain.Entities;
+    using System;
+
     public class VeiculoRepository : IVeiculoRepository
     {
         public VeiculoRepository()
@@ -12,19 +11,19 @@ namespace ManutencaoVeiculoApi.Infra.Repositories.PersistRepository
 
         }
 
-        public Task<bool> Add(VeiculoCommand command)
+        public bool Add(Guid clienteId, string marca, string modelo, string ano, string cor, string placa)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> Remove(int id)
+        public bool Remove(Guid clienteId)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public Task<bool> Update(VeiculoModel veiculo)
+        public bool Update(VeiculoModel veiculo)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

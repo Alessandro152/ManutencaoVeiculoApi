@@ -1,15 +1,14 @@
-﻿using ManutencaoVeiculoApi.Domain.Commands.Veiculo;
-using ManutencaoVeiculoApi.Domain.Entities;
-using System.Threading.Tasks;
-
-namespace ManutencaoVeiculoApi.Application.Interface
+﻿namespace ManutencaoVeiculoApi.Application.Interface
 {
+    using ManutencaoVeiculoApi.Domain.Entities;
+    using System;
+
     public interface IVeiculoRepository
     {
-        Task<bool> Add(VeiculoCommand command);
+        bool Update(VeiculoModel veiculo);
 
-        Task<bool> Update(VeiculoModel veiculo);
+        bool Remove(Guid clienteId);
 
-        Task<bool> Remove(int id);
+        bool Add(Guid clienteId, string marca, string modelo, string ano, string cor, string placa);
     }
 }

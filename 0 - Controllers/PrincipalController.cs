@@ -1,14 +1,13 @@
-﻿using ManutencaoVeiculoApi.Application.AppServices.Cliente;
-using ManutencaoVeiculoApi.Application.ViewModel;
-using ManutencaoVeiculoApi.Domain.Entities;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ManutencaoVeiculoApi.Controllers
+﻿namespace ManutencaoVeiculoApi.Controllers
 {
+    using ManutencaoVeiculoApi.Application.AppServices.Cliente;
+    using ManutencaoVeiculoApi.Application.ViewModel;
+    using ManutencaoVeiculoApi.Domain.Entities;
+    using Microsoft.AspNetCore.Mvc;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     public class PrincipalController : Controller
     {
         private readonly ClienteService _clienteService;
@@ -59,7 +58,7 @@ namespace ManutencaoVeiculoApi.Controllers
         }
 
         [HttpDelete]
-        public bool RemoverAgendamento([FromBody] int id)
+        public bool RemoverAgendamento([FromBody] Guid clienteId)
         {
             return true;
         }

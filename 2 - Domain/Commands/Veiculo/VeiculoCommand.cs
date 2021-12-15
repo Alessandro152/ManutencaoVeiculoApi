@@ -1,12 +1,14 @@
 ﻿using ManutencaoVeiculoApi.Domain.Enum;
+using System;
 
 namespace ManutencaoVeiculoApi.Domain.Commands.Veiculo
 {
     public class VeiculoCommand : Command
     {
 
-        public VeiculoCommand(string marca, string modelo, string ano, VeiculoTipo tipo, string cor, string placa)
+        public VeiculoCommand(Guid clienteId, string marca, string modelo, string ano, VeiculoTipo tipo, string cor, string placa)
         {
+            ClienteId = clienteId;
             Marca = marca;
             Modelo = modelo;
             Ano = ano;
@@ -14,6 +16,8 @@ namespace ManutencaoVeiculoApi.Domain.Commands.Veiculo
             Cor = cor;
             Placa = placa;
         }
+
+        public Guid ClienteId { get; }
 
         public string Marca { get; }
 
