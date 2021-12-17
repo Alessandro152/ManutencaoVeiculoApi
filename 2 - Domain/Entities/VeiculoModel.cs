@@ -1,8 +1,8 @@
-﻿using ManutencaoVeiculoApi.Domain.Entities.Common;
-using ManutencaoVeiculoApi.Domain.Enum;
-
-namespace ManutencaoVeiculoApi.Domain.Entities
+﻿namespace ManutencaoVeiculoApi.Domain.Entities
 {
+    using ManutencaoVeiculoApi.Domain.Entities.Common;
+    using ManutencaoVeiculoApi.Domain.Enum;
+
     public class VeiculoModel : BaseModel
     {
         public string Marca { get; set; }

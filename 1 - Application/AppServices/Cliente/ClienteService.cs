@@ -21,20 +21,18 @@
             _uow = uow;
         }
 
-        public Task SalvarCliente(ClienteModel cliente)
+        public async Task SalvarCliente(ClienteModel cliente)
         {
             var clienteCommand = new ClienteCommand(cliente.Nome, cliente.Endereco, cliente.EMail, cliente.Telefone);
-            var result = _bus.SendCommand<bool, ClienteCommand>(clienteCommand).Result;
+            var result = await _bus.SendCommand<bool, ClienteCommand>(clienteCommand).ConfigureAwait(false);
 
             foreach (var item in cliente.Veiculo)
             {
                 var veiculoCommand = new VeiculoCommand(cliente.Id, item.Marca, item.Modelo, item.Ano, VeiculoTipo.Carro, item.Cor, item.Placa);
-                _bus.SendCommand(veiculoCommand);
+                await _bus.SendCommand(veiculoCommand).ConfigureAwait(false);
             }
 
             if (result) { _uow.Commit(); } else { _uow.RollBack(); }
-
-            return Task.FromResult(result);
         }
     }
 }

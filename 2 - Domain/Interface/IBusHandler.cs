@@ -1,8 +1,8 @@
-﻿using ManutencaoVeiculoApi.Domain.Commands;
-using System.Threading.Tasks;
-
-namespace ManutencaoVeiculoApi.Domain.Interface
+﻿namespace ManutencaoVeiculoApi.Domain.Interface
 {
+    using ManutencaoVeiculoApi.Domain.Commands;
+    using System.Threading.Tasks;
+
     public interface IBusHandler
     {
         Task SendCommand<T>(T command) where T : Command;

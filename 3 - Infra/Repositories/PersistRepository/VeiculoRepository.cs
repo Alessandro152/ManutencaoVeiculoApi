@@ -39,8 +39,8 @@
 
         public bool Remove(Guid clienteId)
         {
-            var entity = _context.veiculos.Where(x => x.Id == clienteId);
-            _context.Remove(entity.FirstOrDefault());
+            var entity = _context.veiculos.Where(x => x.Id == clienteId).ToArray();
+            _context.Remove(entity);
 
             return true;
         }

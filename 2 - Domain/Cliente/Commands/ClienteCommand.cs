@@ -1,4 +1,6 @@
-﻿namespace ManutencaoVeiculoApi.Domain.Commands
+﻿using System;
+
+namespace ManutencaoVeiculoApi.Domain.Commands
 {
     public class ClienteCommand : Command
     {
@@ -8,7 +10,10 @@
             Endereco = endereco;
             EMail = email;
             Telefone = telefone;
+            ClienteId = Guid.NewGuid();
         }
+
+        public Guid ClienteId { get; }
 
         public string Nome { get; }
 

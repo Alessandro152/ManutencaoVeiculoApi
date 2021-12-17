@@ -9,9 +9,9 @@
     public class VeiculoHandler : IHandler<VeiculoCommand>
     {
         private readonly IVeiculoRepository _veiculoRepository;
-        private readonly IValidator<VeiculoCommand> _validator;
+        private readonly IValidatorHandler<VeiculoCommand> _validator;
 
-        public VeiculoHandler(IVeiculoRepository veiculoRepository, IValidator<VeiculoCommand> validator)
+        public VeiculoHandler(IVeiculoRepository veiculoRepository, IValidatorHandler<VeiculoCommand> validator)
         {
             _veiculoRepository = veiculoRepository;
             _validator = validator;
