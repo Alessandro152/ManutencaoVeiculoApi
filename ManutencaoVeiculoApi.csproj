@@ -6,13 +6,18 @@
 
   <ItemGroup>
     <Folder Include="2 - Domain\Cliente\Validations\" />
-    <Folder Include="2 - Domain\Resources\" />
     <Folder Include="3 - Infra\Configurations\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="2 - Domain\Resources\Veiculo\VeiculoResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 

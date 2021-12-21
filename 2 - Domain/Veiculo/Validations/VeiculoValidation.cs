@@ -1,17 +1,20 @@
 ﻿namespace ManutencaoVeiculoApi.Domain.Validations.Veiculo
 {
+    using FluentValidation;
     using ManutencaoVeiculoApi.Domain.Commands.Veiculo;
-    using ManutencaoVeiculoApi.Domain.Interface;
 
-    public class VeiculoValidation : IValidatorHandler<VeiculoCommand>
+    public class VeiculoValidation : AbstractValidator<VeiculoCommand>
     {
         public VeiculoValidation()
         {
+            ValidarMarcaVeiculo();
         }
 
-        public bool Validate(VeiculoCommand message)
+        private void ValidarMarcaVeiculo()
         {
-            return true;
+            RuleFor(p => p.Marca)
+                .NotEmpty()
+                    .WithMessage("A marca do veículo é obrigatória");
         }
     }
 }
