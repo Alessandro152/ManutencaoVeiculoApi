@@ -1,7 +1,6 @@
 ﻿namespace ManutencaoVeiculoApi.Domain.Notifications
 {
 	using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
 	public class NotificationContext
@@ -40,14 +39,6 @@
 		public void AddNotifications(ICollection<Notification> notifications)
 		{
 			_notifications.AddRange(notifications);
-		}
-
-		public void AddNotifications(ValidationResult validationResult)
-		{
-			foreach (var error in validationResult.Errors)
-			{
-				AddNotification(error.ErrorCode, error.ErrorMessage);
-			}
 		}
 	}
 }
