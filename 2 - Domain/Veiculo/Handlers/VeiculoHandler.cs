@@ -25,7 +25,6 @@
         {
             if (message == null)
             {
-
                 return Task.FromResult(false);
             }
 
