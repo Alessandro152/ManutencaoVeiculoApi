@@ -32,7 +32,7 @@
 
         [HttpPost]
         [Route("/SaveCliente")]
-        public async Task SalvarCliente(ClienteViewModel cliente)
+        public async Task<IActionResult> SalvarCliente(ClienteViewModel cliente)
         {
             var dados = new ClienteModel()
             {
@@ -44,12 +44,14 @@
             };
 
             await _clienteService.SalvarCliente(dados).ConfigureAwait(false);
+
+            return Created("", dados);
         }
 
         [HttpPut]
-        public bool AlterarAgendamentoManutencao([FromBody] ManutencaoModel dados)
+        public IActionResult AlterarAgendamentoManutencao([FromBody] ManutencaoModel dados)
         {
-            return true;
+            return Ok();
         }
 
         [HttpPost]
