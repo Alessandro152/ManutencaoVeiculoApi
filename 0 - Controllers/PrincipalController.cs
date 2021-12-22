@@ -24,14 +24,25 @@
         }
 
         [HttpGet]
+        [Route("/GetCliente")]
         public ClienteViewModel RetornarCliente()
         {
             return new ClienteViewModel();
         }
 
         [HttpPost]
-        public async Task SalvarCliente(ClienteModel dados)
+        [Route("/SaveCliente")]
+        public async Task SalvarCliente(ClienteViewModel cliente)
         {
+            var dados = new ClienteModel()
+            {
+                Nome = cliente.Nome,
+                EMail = cliente.EMail,
+                Telefone = cliente.Telefone,
+                Endereco = cliente.Endereco,
+                Veiculo = (IEnumerable<VeiculoModel>)cliente.Veiculo
+            };
+
             await _clienteService.SalvarCliente(dados).ConfigureAwait(false);
         }
 
